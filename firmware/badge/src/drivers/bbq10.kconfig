@@ -1,0 +1,28 @@
+menuconfig BBQ10
+	bool "Blackberry Q10 Keyboard"
+	help
+		Include Blackberry Q10 Keyboard driver
+
+if BBQ10
+
+config BBQ10_DEV_NAME
+	string "BBQ10 device name"
+	default "BBQ10"
+	help
+	  Device name for Blackberry Q10 Keyboard driver.
+
+config BBQ_LED_ON_TIME_MS
+	int "BBQ10 LED on time in milliseconds"
+	range 0 60000
+	default 10000
+	help
+		BBQ10 Keyboard LED on time in milliseconds
+
+config BBQ10_LOG_LEVEL
+	int "BBQ10 log level"
+	range 0 4
+	default 4
+	help
+	  Log level of the BBQ10 Keyboard
+
+endif

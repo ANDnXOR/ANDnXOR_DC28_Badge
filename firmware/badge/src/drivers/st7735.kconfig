@@ -1,0 +1,12 @@
+menuconfig ST7735
+	bool "ST7735 TFT"
+	help
+		Include ST7735 driver
+
+if ST7735
+	config ST7735_LOG_LEVEL
+    	int "Log level of ST7735 display driver"
+    	default 4
+    	help   
+        	Log level of ST7735 driver 4=debug 0=off
+endif

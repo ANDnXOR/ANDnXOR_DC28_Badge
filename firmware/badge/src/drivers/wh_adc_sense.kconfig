@@ -1,0 +1,12 @@
+menuconfig WH_ADC_SENSE
+	bool "ADC Sensor"
+	help
+		Include ADC sensor for battery voltage and thermistor
+
+if WH_ADC_SENSE
+	config WH_ADC_SENSE_LOG_LEVEL
+		int "Log level of ADC sensor module"
+		default 4
+		help
+			Log level of ADC sensor module 4=debug 0=off
+endif

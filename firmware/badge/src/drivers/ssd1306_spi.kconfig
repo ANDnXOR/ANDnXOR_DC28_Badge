@@ -1,0 +1,12 @@
+menuconfig SSD1306_SPI
+	bool "SSD1306_SPI"
+	help
+		Include AND!XOR SSD1306 SPI driver
+
+if SSD1306_SPI
+	config SSD1306_SPI_LOG_LEVEL
+    	int "Log level of SSD1306 SPI driver"
+    	default 4
+    	help   
+        	Log level of SSD1306 SPI driver 4=debug 0=off
+endif

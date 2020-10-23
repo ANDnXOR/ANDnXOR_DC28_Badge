@@ -1,0 +1,13 @@
+willhunting:
+  description: AND!XOR DC28 Badge Firmware
+  name: will hunting
+common:
+    tags: badge, defcon, dc28, matt damon
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+        - "Hello World! (.*)"
+tests:
+  sample.helloworld:
+    tags: introduction

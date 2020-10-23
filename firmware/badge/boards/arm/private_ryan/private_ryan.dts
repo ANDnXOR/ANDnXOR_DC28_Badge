@@ -1,0 +1,164 @@
+/*
+ * Copyright (c) 2017 Linaro Limited
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <mem.h>
+#include <st/f4/stm32f412.dtsi>
+
+/ {
+	model = "AND!XOR DC28 Badge Proto1 'Private Ryan'";
+	compatible = "st,stm32f412";
+
+	chosen {
+		zephyr,console = &usart2;
+		zephyr,shell-uart = &usart2;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+
+	sram0: memory@20000000 {
+		reg = <0x20000000 DT_SIZE_K(256)>;
+	};
+
+	soc {
+		flash-controller@40023c00 {
+			flash0: flash@8000000 {
+				reg = <0x08000000 DT_SIZE_K(512)>;
+			};
+		};
+	};
+
+	gpio_boot0 {
+		compatible = "gpio-keys";
+		boot0_button: boot0_button {
+			label = "boot0";
+			gpios = <&gpioc 14 GPIO_INT_ACTIVE_LOW>;
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		keyboard_led_0: led_0 {
+			gpios = <&gpiob 8 GPIO_INT_ACTIVE_HIGH>;
+			label = "BBQ10 LED 1";
+		};
+		keyboard_led_1: led_1 {
+			gpios = <&gpiob 9 GPIO_INT_ACTIVE_HIGH>;
+			label = "BBQ10 LED 2";
+		};
+		status_led: status_led {
+			gpios = <&gpioa 0 GPIO_INT_ACTIVE_LOW>;
+			label = "Will Hunting Status LED";
+		};
+	};
+
+	aliases {
+		// sw0 = &user_button;
+	};
+};
+
+&adc1 {
+	status = "okay";
+};
+
+&dma2 {
+	status = "okay";
+};
+
+&usart1 {
+	current-speed = <14400>;
+	// pinctrl-names = "default";
+	status = "okay";
+};
+
+&usart2 {
+	current-speed = <115200>;
+	//pinctrl-names = "default";
+	status = "okay";
+};
+
+arduino_i2c: &i2c1 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&i2c2 {
+	status = "disabled";
+	clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&i2c3 {
+	clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&spi1 {
+	status = "okay";
+
+	st7735@0 {
+		status = "okay";
+		compatible = "st7735";
+		label = "ST7735";
+		reg = <0>;
+		spi-max-frequency = <24000000>;
+		cs-gpios = <&gpiod 2 0>;
+		reset-gpios = <&gpiob 10 0>;
+		cmd-data-gpios = <&gpiob 3 0>;
+		backlight-gpios = <&gpioc 9 0>;
+		width = <160>;
+		height = <128>;
+	};
+
+	ssd1306@0 {
+		compatible = "ssd1306_spi"; //custom AND!XOR driver
+		reg = <0>;
+		label = "SSD1306";
+		spi-max-frequency = <8000000>;
+		width = <128>;
+		height = <64>;
+		cs-gpios = <&gpioa 4 0>;
+		reset-gpios = <&gpiob 5 0>;
+		cmd-data-gpios = <&gpioa 15 0>;
+	};
+};
+
+&spi2 {
+	status = "okay";
+	//W25Q64FV
+	w25q64: w25q64fv@0 {
+		compatible = "winbond,w25qxx", "jedec,spi-nor";
+		reg = <0>;
+		label = "W25Q64";
+		size = <0x1000000>;
+		spi-max-frequency = <133000000>; 
+		status = "okay";
+		has-be32k;
+		jedec-id = [ef 40 18];
+		reset-gpios = <&gpioc 13 0>;
+	};
+};
+
+&spi5 {
+	status = "okay";
+	clocks = <&rcc STM32_CLOCK_BUS_APB2 0x00100000>;
+	apa102@0 {
+		compatible = "apa,apa102";
+		reg = <0>;
+		spi-max-frequency = <5250000>;
+		label = "APA102";
+	};
+};
+
+&rtc {
+	status = "okay";
+};
+
+&timers2 {
+	status = "okay";
+};
+
+&usbotg_fs {
+	status = "okay";
+};

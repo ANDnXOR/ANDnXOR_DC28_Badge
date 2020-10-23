@@ -1,0 +1,6 @@
+# Conditionally add the drivers
+zephyr_library_sources_ifdef(CONFIG_BBQ10 bbq10.c)
+zephyr_library_sources_ifdef(CONFIG_SSD1306_SPI ssd1306_spi.c)
+zephyr_library_sources_ifdef(CONFIG_ST7735 st7735.c)
+zephyr_library_sources_ifdef(CONFIG_UC1701 uc1701.c)
+zephyr_library_sources_ifdef(CONFIG_WH_ADC_SENSE wh_adc_sense.c)

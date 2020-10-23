@@ -1,0 +1,140 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        /*{
+            "label": "build",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "dependsOn": [
+                // "cmake"
+            ],
+            "problemMatcher": "$gcc"
+        },*/
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "pristine",
+            "type": "shell",
+            "command": "./build.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            /*
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },*/
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "dependsOn": [
+                // "cmake"
+            ],
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "dfu",
+            "type": "shell",
+            "command": "./dfu.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared"
+            },
+            "dependsOn": [
+                "build"
+            ],
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "./flash.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"
+        },
+        /*{
+            "label": "flash",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "flash"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "focus": false,
+                "panel": "shared",
+                "clear": true
+            },
+            "dependsOn": [
+                // "cmake"
+            ],
+            "problemMatcher": "$gcc"
+        },*/
+    ]
+}

@@ -1,0 +1,87 @@
+rsource "apps/Kconfig"
+rsource "drivers/Kconfig"
+
+config WH_LED_BRIGHTNESS_DEFAULT
+	int "Default LED brightness, can be overriden by user settings"
+	default 25
+	help
+		The default value to use for LED brightness in the event the user has not overriden it
+
+config WH_NAME_MAX_LENGTH
+    int "Maximum length of the name field"
+    default 6
+    help    
+        Maximum length of the name field
+
+config WH_APP_LOG_LEVEL
+    int "Log level of apps"
+    default 4
+    help
+        Log level of apps 4=debug 0=off
+
+config WH_BENDER_LOG_LEVEL
+    int "Log level of BENDER"
+    default 4
+    help   
+        Log level of BENDER 4=debug 0=off
+
+config WH_BLING_LOG_LEVEL
+    int "Log level of AND!XOR bling module"
+    default 4
+    help   
+        Log level of AND!XOR bling module, 4=debug 0=off
+
+config WH_BLING_SHOW_FPS
+    bool "Toggle logging of FPS from bling module"
+    default y
+    help
+        Toggle logging of FPS from bling module
+
+
+config WH_FLAG_LOG_LEVEL
+    int "Log level of flag module"
+    default 4
+    help
+        Log level of flag module 4=debug 0=off
+
+config WH_FS_LOG_LEVEL
+    int "Log level of FS module"
+    default 4
+    help
+        Log level of FS module 4=debug 0=off
+
+config WH_MENU_LOG_LEVEL
+    int "Log level of menu"
+    default 4
+    help   
+        Log level of menu 4=debug 0=off
+
+config WH_POST_LOG_LEVEL
+    int "Log level of POST framework"
+    default 4
+    help   
+        Log level of POST framework 4=debug 0=off
+
+config WH_SHELL_LOG_LEVEL
+    int "Log level of AND!XOR shell wrapper"
+    default 4
+    help   
+        Log level of AND!XOR shell wrapper 4=debug 0=ff
+
+config WH_SHELL_CDC_ACM_LOG_LEVEL
+    int "Log level of Shell CDC ACM shim"
+    default 4
+    help   
+        Log level of CDC ACM shim 4=deub 0=ff
+
+config WH_UI_LOG_LEVEL
+    int "Log level of UI framework"
+    default 4
+    help   
+        Log level of UI framework 4=debug 0=off
+
+config WH_LOG_CDC_ACM_DEVICE_NAME
+    string "Device name of the USB CDC ACM device to use for logging"
+    default "CDC_ACM_1"
+	help
+	  Device name for the USB CDC ACM to log to

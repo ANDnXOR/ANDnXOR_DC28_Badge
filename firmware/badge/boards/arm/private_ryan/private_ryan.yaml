@@ -1,0 +1,17 @@
+identifier: nucleo_f411re
+name: NUCLEO-F411RE
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - arduino_gpio
+  - arduino_i2c
+  - counter
+  - gpio
+  - spi
+  - i2c
+ram: 256
+flash: 512

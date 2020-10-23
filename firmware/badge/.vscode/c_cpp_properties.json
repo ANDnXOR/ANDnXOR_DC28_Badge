@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../zephyrproject/**",
+                "${workspaceFolder}/../zephyrproject/zephyr/arch/arm/include",
+                "${workspaceFolder}/../zephyrproject/zephyr/lib/gui/lvgl",
+                "${workspaceFolder}/../zephyrproject/modules/lib/gui/lvgl",
+                "${workspaceFolder}/../zephyrproject/modules/lib/gui/lvgl/src/lv_misc/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

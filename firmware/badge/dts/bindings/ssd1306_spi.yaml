@@ -1,0 +1,34 @@
+#
+# Copyright (c) 2020, AND!XOR LLC <https://www.andnxor.com>
+#
+
+description: >
+    This is a representation of the SSD1306 OLED display using SPI bus
+
+compatible: "ssd1306_spi"
+
+include: spi-device.yaml
+
+properties:
+
+    cs-gpios:
+      type: phandle-array
+      required: true
+
+    reset-gpios:
+      type: phandle-array
+      required: false
+
+    cmd-data-gpios:
+      type: phandle-array
+      required: true
+
+    width:
+      type: int
+      required: true
+      description: Screen width in pixels
+
+    height:
+      type: int
+      required: true
+      description: Screen height in pixels

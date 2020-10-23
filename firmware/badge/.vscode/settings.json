@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"autoconf.h": "c",
+		"device.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
+}
